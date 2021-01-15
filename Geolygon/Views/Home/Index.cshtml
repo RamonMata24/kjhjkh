@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            @* Div Mapa*@
+            <div id="mapid" style="height: 600px">
+
+            </div>
+
+
+
+
+            @* Descargar archivo .txt del poligono dibujado con clicks*@
+            <div>
+                <label>Extraer GeoJSON de poligono dibujado con clicks</label>
+                <br />
+                <input class="form-control" type="text" id="name2" placeholder="Nombre del archivo:">
+                <button onclick="convertir()" type="button">DownloadGeoJSON</button>
+            </div>
+
+
+            @*Captura y descarga de poligono mediante coordenadas UTM*@
+            <div>
+                <br />
+                <label>Captura de poligono mediante coordenadas UTM</label>
+                <input class="form-control" type="text" id="name1" placeholder="Nombre del archivo:"><br />
+                <textarea class="form-control" id="coordendas" style="resize: both; min-height: 20px; min-width: 300px;" placeholder="Ingrese Pila de coordenadas concatenadas"></textarea>
+                <br /><button class="btn btn-primary btn-sm" type="button" onclick="capturaC()">Capturar</button><br /><br />
+                <button class="btn btn-primary" type="button" onclick="savetxt()">Generar GeoJSON.txt</button>
+            </div>
+
+
+
+
+            @*Captura y decarga de poligono mediante archivo CSV*@
+            <div>
+                <form>
+                    <br /><label for="exampleFormControlTextarea1">Captura de poligono mediante archivo .CSV</label>
+                    <h3 style="color: red"> Inserte archivo CSV </h3>
+                    <input class="form-control-file" id="File" type="file" accept=".csv" />
+                    <button class="btn btn-primary btn-sm" type="button" onclick="capturaF()">Cargar Archivo</button>
+                    <table>
+                        <tr>
+                            <td><input class="form-control" type="text" id="name" placeholder="Nombre del archivo:"></td>
+                            <td><button class="btn btn-primary" type="button" onclick="txtCSV()">Generar GeoJSON.txt</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+
+
+            @* Captura para los archivos KML    *@
+
+            <div>
+                <h3>Files XML , KML & KMZ</h3>
+
+                <form class="form-control" method="POST" enctype="multipart/form-data">
+
+                    @* <input class="form-control-file" id="filexml" type="file" accept=".kml" /><br />
+                <button  id="xml" type="button" class="btn btn-success" > XML</button>*@
+
+                    <div class="form-group">
+                        <input type="file" id="files" multiple onchange="filesInfo()" name="" accept=".kml"><br />
+
+                        <button class="btn btn-danger" type="button" onclick="borrarkml()">Borrar Kml</button>
+
+
+
+                        <button class="btn btn-success">Guardar en BD</button>
+                        <br />
+                    </div>
+                </form>
+
+            </div>
+
+
+            <div>
+
+
+             @*   @{ 
+                    if (!string.IsNullOrEmpty(ViewBag.Message))
+                    {
+                        <div class="alert alert-warning" >
+                            @ViewBag.Message
+                        </div>
+                    }
+                }*@
+                <br />
+                <br />
+
+                @*<h3>Properties</h3>
+
+                <form  action="~/Properties/Create" method="post">
+
+                    <div class="form-group">
+                        <label>Nombre de la Propiedad:</label><br />
+                        <input class="form-control" type="text" name="nombre" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input class="form-control" type="text" name="address" required />
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit" >Guardar</button>
+                    </div>
+                </form>
+*@
+
+            </div>
+
+
+
+
+            <br />
+            <br />
+            <br />
+
+            <br />
+            <br />
+            <br />
+
+
+            <br />
+            <br />
+            <br />
+
+
+            <br />
+            <br />
+            <br />
+
+
+
+
+        </div>
+    </div>
+</div>

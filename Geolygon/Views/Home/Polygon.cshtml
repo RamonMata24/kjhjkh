@@ -1,0 +1,38 @@
+﻿@model  List<Geolygon.Models.ViewModels.PolygonList>
+@{
+    ViewBag.Title = "Polygon";
+}
+
+<h2>@ViewBag.Title &nbsp;<span class="badge bg-secondary"> Lista Poligonos</span></h2>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+
+            <tr>
+                <th>#</th>
+                <th>Id Propiedad</th>  
+                <th>Identificador</th>
+                <th>Latitud</th>
+                <th>Longitud</th>
+                <th>Options</th>
+            </tr>
+
+            @foreach (var oElemento in Model)
+            {
+
+        <tr>
+            <td>@oElemento.Id</td>
+            <td>@oElemento.Prop_Id</td>
+            <td>@oElemento.Identifier</td>
+            <td>@oElemento.Lat</td>
+            <td>@oElemento.Long</td>
+            <td><button class="btn btn-warning">Editar</button> <button class="btn btn-danger">Elimina</button></td>
+        </tr>
+            }
+
+
+        </table>
+    </div>
+</div>
